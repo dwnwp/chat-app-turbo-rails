@@ -1,4 +1,4 @@
-class AddDefaultRooms < ActiveRecord::Migration[8.0]ๆีระ
+class AddDefaultRooms < ActiveRecord::Migration[8.0]
     def change
       create_table :rooms do |t|
         t.string :name
