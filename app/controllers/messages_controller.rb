@@ -1,11 +1,12 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /messages or /messages.json
   def index
     if params[:room_id]
         @room = Room.find(params[:room_id])
-        @messages = @room.messages
+        @messages = @room.messages.includes(:user)
       else
         @messages = []
     end
@@ -26,7 +27,8 @@ class MessagesController < ApplicationController
 
   # POST /messages or /messages.json
   def create
-    @message = Message.new(message_params)
+
+    @message = current_user.messages.build(message_params)
 
     respond_to do |format|
       if @message.save
@@ -75,6 +77,6 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.expect(message: [ :content, :room_id ])
+      params.require(:message).permit(:content, :room_id)
     end 
 end
