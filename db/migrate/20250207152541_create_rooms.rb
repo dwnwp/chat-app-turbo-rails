@@ -5,7 +5,7 @@ class CreateRooms < ActiveRecord::Migration[8.0]
 
       t.timestamps
     end
+    Room.create!(name: 'Room 1')
+    Room.create!(name: 'Room 2')
   end
-  Room.create!(name: 'Room 1')
-  Room.create!(name: 'Room 2')
 end
