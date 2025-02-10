@@ -1,9 +1,9 @@
 
 <%= form_with(model: message, id: 'message-form') do |form| %>
-  <%= form.text_field :content, :autocomplete => 'off' %>
-  <%= form.hidden_field :room_id %>
-  
-  <div>
-  <%= form.submit "Send" %>
-  </div>
+    <%= form.text_field :content, :autocomplete => 'off', :placeholder => 'Type here, ...', required: true, class: 'message-form-input'%>
+    <%= form.hidden_field :room_id %>
+    
+    <div class='button' id='send'>
+    <%= form.submit "Send", class: 'button' %>
+    </div>
 <% end %>

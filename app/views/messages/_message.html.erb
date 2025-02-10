@@ -1,5 +1,13 @@
-
 <div class="message" id="<%= dom_id(message) %>">
-  <strong><%= message.user.email_address %>:</strong> <%= message.content %>
-  <%= button_to 'Delete', message, method: :delete, data: { turbo_confirm: 'Are you sure?' } %>
+  <strong class="<%= message.user == Current.user ? 'text-lime' : 'text-red' %>">
+    <% if message.user == Current.user %>
+      Me:
+    <% else %>
+       <%= message.user.email_address %>:
+    <% end %>
+  </strong> 
+  <%= message.content %>
+  <%= button_to 'Delete', message, method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'button' %>
 </div>
+
+

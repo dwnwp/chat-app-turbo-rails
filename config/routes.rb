@@ -4,11 +4,6 @@ Rails.application.routes.draw do
   resources :messages
   resources :rooms
   resources :registration, only: %i[new create]
-  resources :rooms do
-    member do
-      delete 'delete_all_messages'
-    end
-  end
   
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

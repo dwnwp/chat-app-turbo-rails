@@ -1,12 +1,12 @@
 <div id='messages'>
-    <%= turbo_frame_tag 'room-messages' do %>
-    <div id='message-list'>
-        <% @messages.each do |message| %>
-            <%= render message %>
+            <%= turbo_frame_tag 'room-messages' do %>
+                <h1 style="text-align: center"> <%= @room.name %> </h1>
+                <div id='message-list'>
+                    <% @messages.each do |message| %>
+                        <%= render message %>
+                    <% end %>
+                </div>
+                <%= render partial: 'messages/form', locals: {message:Message.new(room: @room)} %>
+                <%= turbo_stream_from @room %>
         <% end %>
     </div>
-    <%= render partial: 'messages/form', locals: {message:Message.new(room: @room)} %>
-    <%= turbo_stream_from @room %>
-    <% end %>
-    <%= button_to "Clear message", delete_all_messages_room_path(@room), method: :delete, data: { confirm: 'Are you sure you want to delete all messages?' } %>
-</div>

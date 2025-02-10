@@ -1,5 +1,9 @@
 html,
-body,
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1B1A55;
+}
+
 #chatapp {
     height: 100%;
     margin: 0;
@@ -11,13 +15,30 @@ body,
 }
 
 #rooms {
-    background-color: lightblue;
-    width: 200px;
+    background-color: #070F2B;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 0.5em;
+    padding: 1.25em;
+    margin: 5px;
+    height: 90vh;
+    width: 100vw;
+    box-shadow: 0 0 1.25em 0.5em #c3c3c333;
+    display: flex;
+    /* ใช้ flexbox */
+    flex-direction: column;
 }
 
 #messages {
-    background-color: beige;
-    flex-grow: 1;
+    background-color: #070F2B;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 0.5em;
+    padding: 1.25em;
+    margin: 5px;
+    height: 90vh;
+    width: 100vw;
+    box-shadow: 0 0 1.25em 0.5em #c3c3c333;
+    display: flex;
+    flex-direction: column;
 }
 
 #message-form {
@@ -26,4 +47,108 @@ body,
 
 .message form {
     display: inline-block;
+}
+
+.button {
+    border: none;
+    padding: 0.625em;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.button:hover {
+    filter: brightness(0.9);
+}
+
+.button:active {
+    transform: translateY(2px);
+}
+
+.button#send {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.message {
+    color: #F6F5F2;
+    margin: 20px;
+}
+
+.text-lime {
+    color: lime;
+}
+
+.text-red {
+    color: red;
+}
+
+#message-list {
+    background-color: #1B1A55;
+    border-radius: 0.5em;
+    padding: 1.25em;
+    margin: auto;
+    height: 25em;
+    overflow-y: scroll;
+}
+
+.message-form-input {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 0.625em;
+    border: none;
+    border-radius: 0.5em;
+    background-color: #F6F5F2;
+    color: #333;
+    font-size: 1em;
+    flex-grow: 1;
+}
+
+.create-room {
+    background-color: #1B1A55;
+    border-radius: 0.5em;
+    padding: 1.25em;
+    max-width: 25em;
+}
+
+#room-list {
+    background-color: #1B1A55;
+    border-radius: 0.5em;
+    padding: 1.25em;
+    max-width: 25em;
+}
+
+.room {
+    color: #F6F5F2;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+h1 {
+    color: #F6F5F2;
+}
+
+.login-page {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 1em;
+    width: 440px;
+    height: 440px;
+    padding: 30px;
+    text-align: center;
+    background-color: #070F2B;
+}
+
+.login-input {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 0.625em;
+    border: none;
+    border-radius: 0.5em;
+    background-color: #F6F5F2;
+    color: #333;
+    font-size: 1em;
+    flex-grow: 1;
+    width: 24em;
 }

@@ -12,13 +12,11 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class='create-room'>
+    <%= form.label :name, style: "display: inline; color: white", required: true %>
+    <%= form.text_field :name, class: 'message-form-input' %>
+    <%= form.submit "Create a room", class: 'button' %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>
 </div>

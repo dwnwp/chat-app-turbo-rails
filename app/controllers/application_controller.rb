@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
   helper_method :current_user
   include Authentication
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
@@ -11,5 +12,7 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     redirect_to login_path, alert: "Please log in first" if current_user.nil?
   end
+
+  private
 
 end

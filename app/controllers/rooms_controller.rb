@@ -62,16 +62,6 @@ class RoomsController < ApplicationController
     end
   end
 
-  def delete_all_messages
-    @room = Room.find(params[:id])
-    @room.messages.destroy_all
-    
-    respond_to do |format|
-      format.html { redirect_to rooms_path, status: :see_other, notice: "Room was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_room

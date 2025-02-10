@@ -1,33 +1,33 @@
 <div id='chatapp'>
     <div id='rooms'>
-        <p>
+        <h1 style="text-align: left">
             Welcome <%= Current.user.email_address %>!
-        </p>
+        </h1>
         
-        <%= turbo_frame_tag 'room' do %>
-        <br>
-        <div id='room-list'>
-            <% @rooms.each do |room| %>
-            <%= render room %>
+            <%= turbo_frame_tag 'room' do %>
+            <br>
+                <div id='room-list'>
+                    <% @rooms.each do |room| %>
+                        <%= render room %>
+                    <% end %>
+                </div>
+            <br>
+            <%= render partial: 'form', locals: {room: Room.new(name:"Room #{Room.count + 1}")} %>
             <% end %>
-        </div>
         <br>
-        <%= render partial: 'form', locals: {room: Room.new(name:"Room #{Room.count + 1}")} %>
-        <% end %>
-        <br>
-        <%= button_to "Logout", session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= button_to "Logout", session_path, method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'button', id: 'logout' %>
     </div>
 
     <div id='messages'>
-        <%= turbo_frame_tag 'room-messages' do %>
-        <div id='message-list'>
-            <% @messages.each do |message| %>
-                <%= render message %>
-            <% end %>
-        </div>
-        <%= render partial: 'messages/form', locals: {message:Message.new(room: @room)} %>
-        <%= turbo_stream_from @room %>
+            <%= turbo_frame_tag 'room-messages' do %>
+                <h1 style="text-align: center"> <%= @room.name %> </h1>
+                <div id='message-list'>
+                    <% @messages.each do |message| %>
+                        <%= render message %>
+                    <% end %>
+                </div>
+                <%= render partial: 'messages/form', locals: {message:Message.new(room: @room)} %>
+                <%= turbo_stream_from @room %>
         <% end %>
-        <%= button_to "Clear message", delete_all_messages_room_path(@room), method: :delete, data: { confirm: 'Are you sure you want to delete all messages?' } %>
     </div>
 </div>
