@@ -1,24 +1,17 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Chat Application Turbo Rails
+1. Clone Repository
+``` cmd
+git clone https://github.com/dwnwp/chat-app-turbo-rails.git
+```
+2. Install bundle
+``` cmd
+bundle install
+```
+3. Migrate
+``` cmd
+rails db:migrate
+```
+4. Run server
+``` cmd
+rails server
+```
